@@ -9,24 +9,18 @@
 const PLOTLY_URL = "https://cdn.jsdelivr.net/npm/plotly.js@3.6.0/dist/plotly.min.js";
 const MERMAID_URL = "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
 
-// Detect OS/browser preference
-const browserPref = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
 // Determine the computed theme, which can be "dark" or "light".
 function determineComputedTheme() {
-  // Determine the expected state of the theme toggle, which can be "dark", "light", or default "system"
-  let themeSetting = localStorage.getItem("theme");
-  themeSetting = (themeSetting != "dark" && themeSetting != "light" && themeSetting != "system") ? "system" : themeSetting;
-
-  // Return the setting if set, or use the browser preference
-  if (themeSetting != "system") {
-    return themeSetting;
+  // Remember an explicit choice; otherwise start in light mode.
+  try {
+    return localStorage.getItem("theme") === "dark" ? "dark" : "light";
+  } catch (error) {
+    return "light";
   }
-  return browserPref ? "dark" : "light";
 }
 
 // Set the theme on page load or when explicitly called. Without an argument the
-// theme is the stored preference or, failing that, the OS/browser preference.
+// theme is the stored preference or, failing that, light.
 function setTheme(theme) {
   const use_theme = theme || determineComputedTheme();
 
@@ -43,7 +37,11 @@ function setTheme(theme) {
 function toggleTheme() {
   const current_theme = $("html").attr("data-theme");
   const new_theme = current_theme === "dark" ? "light" : "dark";
-  localStorage.setItem("theme", new_theme);
+  try {
+    localStorage.setItem("theme", new_theme);
+  } catch (error) {
+    // Theme switching still works when browser storage is unavailable.
+  }
   setTheme(new_theme);
   redrawPlotly();
 }
@@ -141,14 +139,8 @@ $(document).ready(function () {
   const scssLarge = 925;          // pixels, from /_sass/_themes.scss
   const scssMastheadHeight = 70;  // pixels, from the current theme (e.g., /_sass/theme/_default.scss)
 
-  // If the user hasn't chosen a theme, follow the OS preference
+  // Default to light unless the user has explicitly chosen dark mode.
   setTheme();
-  window.matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener("change", (e) => {
-          if (!localStorage.getItem("theme")) {
-            setTheme(e.matches ? "dark" : "light");
-          }
-        });
 
   // Enable the theme toggle
   $('#theme-toggle').on('click', toggleTheme);

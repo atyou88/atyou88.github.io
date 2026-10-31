@@ -10,6 +10,16 @@
 
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  // Apply the saved choice before styles load, avoiding a theme flash.
+  try {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  } catch (error) {
+    document.documentElement.removeAttribute('data-theme');
+  }
 </script>
 
 <!-- For all browsers -->

@@ -1,4 +1,7 @@
 <script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
+{% if page.publication_cards %}
+<script defer src="{{ '/assets/js/publication-lightbox.js' | relative_url }}"></script>
+{% endif %}
 
 {% include analytics.html %}
 
