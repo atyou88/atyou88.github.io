@@ -6,4 +6,4 @@ redirect_to: /assets/pdf/cv.pdf
 sitemap: false
 ---
 
-[Open CV (PDF)]({{ '/assets/pdf/cv.pdf' | relative_url }})
+[查看中文简历（PDF）]({{ '/assets/pdf/cv.pdf' | relative_url }})

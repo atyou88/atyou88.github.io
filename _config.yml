@@ -166,6 +166,7 @@ include:
   - _pages
 exclude:
   - __materials__
+  - __resume_template__
   - AGENTS.md
   - _posts
   - _drafts
