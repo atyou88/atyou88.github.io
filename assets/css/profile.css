@@ -1,0 +1,86 @@
+/* Visual refinements; retain Academic Pages' existing grid and section order. */
+:root {
+  --profile-heading: #17243a;
+  --profile-muted: #626e7e;
+  --global-text-color: #344054;
+  --global-text-color-light: #667085;
+  --global-bg-color: #fff;
+  --global-border-color: #e8ecf2;
+  --global-dark-border-color: #e1e6ee;
+  --global-link-color: #255fa5;
+  --global-link-color-hover: #18467f;
+  --global-link-color-visited: #255fa5;
+  --global-masthead-link-color: #455267;
+  --global-masthead-link-color-hover: #255fa5;
+  --global-footer-bg-color: #f8f9fc;
+}
+html[data-theme="dark"] {
+  --profile-heading: #edf2fa;
+  --profile-muted: #a7b3c6;
+  --global-text-color: #c9d3e3;
+  --global-text-color-light: #9caac0;
+  --global-bg-color: #17202e;
+  --global-border-color: #2d3a4d;
+  --global-dark-border-color: #35445a;
+  --global-link-color: #93bbf1;
+  --global-link-color-hover: #bfd7fa;
+  --global-link-color-visited: #93bbf1;
+  --global-masthead-link-color: #c9d3e3;
+  --global-masthead-link-color-hover: #bfd7fa;
+  --global-footer-bg-color: #141c28;
+}
+html { font-size: 17px; scroll-padding-top: 100px; }
+body { line-height: 1.75; padding-bottom: 0; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5, h6 { color: var(--profile-heading); }
+.page__title { font-size: 2rem; font-weight: 700; letter-spacing: -.045em; line-height: 1.2; margin-bottom: 1.2rem; }
+.page__content { font-size: 1rem; }
+.page__content h2 { font-size: 1.23rem; font-weight: 650; letter-spacing: -.025em; line-height: 1.35; margin: 2.3rem 0 1.1rem; padding-bottom: .6rem; }
+.page__content p { margin-bottom: 1.1rem; }
+.page__content strong { font-weight: 600; }
+.page__content a { text-decoration: none; text-underline-offset: .2em; }
+.page__content a:hover { text-decoration: underline; }
+.page__content a:hover img { box-shadow: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--global-link-color); outline-offset: 4px; border-radius: 2px; }
+.masthead__inner-wrap { padding-top: .6rem; padding-bottom: .6rem; }
+.greedy-nav a { font-size: .87rem; font-weight: 500; }
+.masthead__menu-item--lg a { font-size: 1rem; font-weight: 650; letter-spacing: -.025em; }
+.masthead__menu-item.selected a { border-bottom-color: var(--global-link-color); }
+.author__name { font-size: 1.05rem; font-weight: 650; letter-spacing: -.025em; line-height: 1.35; }
+.sidebar .author__bio { font-size: .81rem; line-height: 1.65; color: var(--profile-muted); }
+.sidebar .author__urls li { font-size: .8rem; line-height: 1.75; }
+.author__avatar img { border: 1px solid var(--global-border-color); padding: 4px; }
+.page__content .publication__title { font-size: 1rem; font-weight: 650; line-height: 1.5; letter-spacing: -.015em; }
+.page__content .publication__authors { color: var(--profile-muted); font-size: .83rem; line-height: 1.65; }
+.page__content .publication__summary { font-size: .88rem; line-height: 1.7; }
+.page__content .publication__venue { font-size: .8rem; line-height: 1.65; margin-top: .65rem; }
+.publication__venue > a { font-weight: 600; }
+.page__content .publication-note { color: var(--profile-muted); font-size: .79rem; }
+.publication__figure { border-color: #e8ecf2; border-radius: 5px; }
+.publication__status { color: var(--profile-muted); border-color: var(--global-dark-border-color); border-radius: 3px; font-size: .8em; padding: .05em .45em; }
+.education-entry__body { font-size: .93rem; line-height: 1.75; }
+.education-entry__body strong { color: var(--profile-heading); }
+.education-entry__logo { height: 84px; }
+.page__content .awards-list { font-size: .92rem; line-height: 1.75; }
+.awards-list li { margin-bottom: .65rem; }
+.page__content .awards-list strong { font-weight: 500; }
+.page__content .awards-list .award--highlight strong { font-weight: 700; }
+.page__footer { position: static; border-top: 1px solid var(--global-border-color); margin-top: 3.5rem; }
+.page__footer footer { padding-top: .4rem; padding-bottom: 1.3rem; }
+.page__footer-copyright { font-size: .7rem; line-height: 1.8; }
+.page__footer-follow li { font-size: .73rem; }
+@media (max-width: 600px) {
+  html { font-size: 16px; scroll-padding-top: 84px; }
+  .page__title { font-size: 1.8rem; }
+  .page__content h2 { margin-top: 2rem; }
+  .publication__figure { padding: .65rem; }
+  .page__footer { margin-top: 2.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+.award__year { font-variant-numeric: tabular-nums; color: var(--profile-muted); }
+
+/* Match the restrained emphasis used for the leading awards. */
+.education-entry__body .education-honor { color: #8a6410; font-weight: 700; }
+html[data-theme="dark"] .education-entry__body .education-honor { color: #d8b76e; }

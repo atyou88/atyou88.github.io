@@ -23,3 +23,9 @@
 <meta name="theme-color" content="var(--global-bg-color)"/>
 
 <!-- end custom head snippets -->
+
+{% if page.publication_cards or page.profile_sections %}
+<link rel="stylesheet" href="{{ "/assets/css/publications.css" | relative_url }}">
+{% endif %}
+
+<link rel="stylesheet" href="{{ "/assets/css/profile.css" | relative_url }}">

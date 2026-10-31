@@ -1,0 +1,15 @@
+<div class="publication-list">
+  {% for paper in site.data.publications %}
+  <article class="publication">
+    <a class="publication__figure" href="{{ paper.image | relative_url }}" aria-label="View {{ paper.image_alt | escape }}">
+      <img src="{{ paper.image | relative_url }}" alt="{{ paper.image_alt | escape }}" loading="lazy" decoding="async">
+    </a>
+    <div class="publication__body">
+      <h3 class="publication__title">{% if paper.paper_url %}<a href="{{ paper.paper_url }}">{{ paper.title }}</a>{% else %}{{ paper.title }}{% endif %}</h3>
+      <p class="publication__authors">{{ paper.authors }}</p>
+      <p class="publication__summary">{{ paper.summary }}</p>
+      <p class="publication__venue"><strong>{{ paper.venue }}</strong>{% if paper.status == 'Under review' %} <span class="publication__status">Under review</span>{% endif %}{% if paper.paper_url %} <span aria-hidden="true">·</span> <a href="{{ paper.paper_url }}">Paper</a>{% endif %}{% if paper.code_url %} <span aria-hidden="true">·</span> <a href="{{ paper.code_url }}">Code</a>{% endif %}</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>

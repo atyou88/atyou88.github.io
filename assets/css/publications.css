@@ -1,0 +1,33 @@
+/* Publication rows complement the existing Academic Pages typography and theme. */
+.publication-list { margin: 1.5rem 0 2rem; }
+.publication { display: grid; grid-template-columns: minmax(150px, 28%) minmax(0, 1fr); align-items: start; gap: 1.25rem; margin-bottom: 2rem; }
+.publication__figure { display: flex; align-items: center; justify-content: center; min-height: 130px; padding: 8px; border: 1px solid var(--global-border-color, #ddd); border-radius: 6px; background: #fff; }
+.publication__figure img { display: block; width: 100%; height: auto; margin: 0; }
+.page__content .publication__title { margin: 0 0 .45rem; font-size: 1em; line-height: 1.45; }
+.publication__title a { color: inherit; text-decoration: none; }
+.publication__title a:hover { text-decoration: underline; }
+.page__content .publication__authors, .page__content .publication__summary, .page__content .publication__venue { margin: 0 0 .55rem; font-size: .85em; line-height: 1.55; }
+.page__content .publication-note { font-size: .8em; }
+.publication__status { display: inline-block; margin-left: .4em; padding: .1em .5em; border: 1px solid currentColor; border-radius: 4px; font-size: .85em; }
+.publication__figure:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (max-width: 600px) {
+  .publication { grid-template-columns: minmax(0, 1fr); gap: .8rem; }
+  .publication__figure { min-height: 0; }
+  .publication__figure img { max-height: 190px; width: 100%; object-fit: contain; }
+}
+
+/* Vector school emblems remain sharp at every display size. */
+.education-entry { display: grid; grid-template-columns: 80px minmax(0, 1fr); align-items: center; gap: 1rem; margin: 1.4rem 0; }
+.education-entry__logo { display: flex; align-items: center; justify-content: center; width: 80px; height: 88px; padding: 6px; border-radius: 6px; background: #fff; }
+.education-entry__logo img { display: block; width: 100%; height: 100%; object-fit: contain; margin: 0; }
+.page__content .education-entry__body p { margin: 0; }
+.page__content .awards-list { padding-left: 1.2em; }
+.awards-list li { margin-bottom: .65rem; }
+/* Emphasize the two leading honors within the same list rhythm. */
+.awards-list strong { font-weight: 500; }
+.awards-list .award--highlight strong { font-weight: 700; color: #8a6410; }
+html[data-theme="dark"] .awards-list .award--highlight strong { color: #d8b76e; }
+@media (max-width: 480px) {
+  .education-entry { grid-template-columns: 58px minmax(0, 1fr); gap: .7rem; }
+  .education-entry__logo { width: 58px; height: 66px; }
+}
