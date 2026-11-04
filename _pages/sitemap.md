@@ -9,4 +9,4 @@ author_profile: true
 - [Education]({{ '/#education' | relative_url }})
 - [Publications and manuscripts]({{ '/#publications' | relative_url }})
 - [Awards]({{ '/#awards' | relative_url }})
-- [Curriculum vitae (PDF)]({{ '/assets/pdf/cv.pdf' | relative_url }})
+- [Curriculum vitae (PDF)]({{ '/assets/pdf/resume.pdf' | relative_url }})
